@@ -1,0 +1,12 @@
+==> 2022-07-27 15:31:13 <==
+# cmd: C:\ProgramData\Anaconda3\Scripts\conda-script.py create -p venv1 python==3.7 -y
+# conda version: 4.13.0
++defaults/noarch::wheel-0.37.1-pyhd3eb1b0_0
++defaults/win-64::certifi-2022.6.15-py37haa95532_0
++defaults/win-64::pip-22.1.2-py37haa95532_0
++defaults/win-64::python-3.7.0-hea74fb7_0
++defaults/win-64::setuptools-61.2.0-py37haa95532_0
++defaults/win-64::vc-14.2-h21ff451_1
++defaults/win-64::vs2015_runtime-14.27.29016-h5e58377_2
++defaults/win-64::wincertstore-0.2-py37haa95532_2
+# update specs: ['python==3.7']
