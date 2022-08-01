@@ -5,7 +5,7 @@ __pycache__/
 saved_models/*
 # C extensions
 *.so
-housing/artifact
+maintanance/artifact
 # Distribution / packaging
 .Python
 build/
