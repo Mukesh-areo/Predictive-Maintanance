@@ -1,0 +1,29 @@
+columns:
+ Cycle: int64
+ OpSet1: float64
+ OpSet2: float64
+ OpSet3: float64
+ SensorMeasure1: float64
+ SensorMeasure2: float64
+ SensorMeasure3: float64
+ SensorMeasure4: float64
+ SensorMeasure5: float64
+ SensorMeasure6: float64
+ SensorMeasure7: float64
+ SensorMeasure8: float64
+ SensorMeasure9: float64
+ SensorMeasure10: float64
+ SensorMeasure11: float64
+ SensorMeasure12: float64
+ SensorMeasure13: float64
+ SensorMeasure14: float64
+ SensorMeasure15: float64
+ SensorMeasure16: float64
+ SensorMeasure17: int64
+ SensorMeasure18: int64
+ SensorMeasure19: float64
+ SensorMeasure20: float64
+ SensorMeasure21: float64
+ labels: int64
+
+traget_column : labels

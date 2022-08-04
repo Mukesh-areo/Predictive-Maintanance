@@ -3,7 +3,7 @@ training_pipeline_config:
   artifact_dir : artifact
 
 data_ingestion_config:
-  dataset_download_url: https://raw.githubusercontent.com/Mukesh-areo/dataset/main/Turbojet_maintanance_data.tgz
+  dataset_download_url: https://raw.githubusercontent.com/Mukesh-areo/dataset/main/Predictive_Maintanance_TurbojetEngine.tgz
   raw_data_dir: raw_data
   tgz_download_dir: tgz_data
   ingested_data_dir: ingested_dir

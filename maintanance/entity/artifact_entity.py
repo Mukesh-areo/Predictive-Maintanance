@@ -22,3 +22,4 @@ ModelEvaluationArtifact = namedtuple("ModelEvaluationArtifact", ["is_model_accep
 
 ModelPusherArtifact = namedtuple("ModelPusherArtifact", ["is_model_pusher", "export_model_file_path"])
 
+  
