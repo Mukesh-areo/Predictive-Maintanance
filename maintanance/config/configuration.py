@@ -90,21 +90,113 @@ class configuration:
             raise maintananceException(e,sys) from e
  
     def get_data_transformation_config(self)->DataTransformationconfig:
-        pass
+        try:
+            artifact_dir = self.training_pipeline_config.artifact_dir
+            data_transformation_artifact_dir=os.path.join(
+                artifact_dir,
+                DATA_TRANSFORMATION_ARTIFACT_DIR,
+                self.time_stamp
+            )
+            data_transformation_config_info=self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
+ 
+            preprocessed_object_file_path=os.path.join(
+                data_transformation_artifact_dir,
+                data_transformation_config_info[DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY],
+                data_transformation_config_info[DATA_TRANSFORMATION_PREPROCESSED_FILE_NAME_KEY]
+            )
+
+            transformed_train_dir=os.path.join(
+                data_transformation_artifact_dir,
+                data_transformation_config_info[DATA_TRANSFORMATION_DIR_NAME_KEY],
+                data_transformation_config_info[DATA_TRANSFORMATION_TRAIN_DIR_NAME_KEY]
+            )
+
+            transformed_test_dir=os.path.join(
+                data_transformation_artifact_dir,
+                data_transformation_config_info[DATA_TRANSFORMATION_DIR_NAME_KEY],
+                data_transformation_config_info[DATA_TRANSFORMATION_TEST_DIR_NAME_KEY]
+            )
+
+
+            data_transformation_config=DataTransformationconfig(
+                preprocessed_object_file_path=preprocessed_object_file_path,
+                transformed_train_dir=transformed_train_dir,
+                transformed_test_dir=transformed_test_dir
+            )
+
+            logging.info(f"Data transformation config:{data_transformation_config}")
+            return data_transformation_config
+        except Exception as e:
+            raise maintananceException(e,sys) from e
+             
 
     def get_model_trainer_config(self)->ModelTrainerconfig:
-        pass
+        try:
+            artifact_dir = self.training_pipeline_config.artifact_dir
 
-    def get_model_evaluation_config(self)->ModelEvaluationconfig:
-        pass
+            model_trainer_artifact_dir=os.path.join(
+                artifact_dir,
+                MODEL_TRAINER_ARTIFACT_DIR,
+                self.time_stamp
+            )
+            model_trainer_config_info = self.config_info[MODEL_TRAINER_CONFIG_KEY]
+            trained_model_file_path = os.path.join(model_trainer_artifact_dir,
+            model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_DIR_KEY],
+            model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY]
+            )
 
-    def get_model_pusher_config(self)->ModelPusherconfig:
-        pass
+            model_config_file_path = os.path.join(model_trainer_config_info[MODEL_TRAINER_MODEL_CONFIG_DIR_KEY],
+            model_trainer_config_info[MODEL_TRAINER_MODEL_CONFIG_FILE_NAME_KEY]
+            )
+
+            base_accuracy = model_trainer_config_info[MODEL_TRAINER_BASE_ACCURACY_KEY]
+
+            model_trainer_config = ModelTrainerconfig(
+                trained_model_file_path=trained_model_file_path,
+                base_accuracy=base_accuracy,
+                model_config_file_path=model_config_file_path
+            )
+            logging.info(f"Model trainer config: {model_trainer_config}")
+            return model_trainer_config
+        except Exception as e:
+            raise maintananceException(e,sys) from e
+
+    def get_model_evaluation_config(self) ->ModelEvaluationconfig:
+        try:
+            model_evaluation_config = self.config_info[MODEL_EVALUATION_CONFIG_KEY]
+            artifact_dir = os.path.join(self.training_pipeline_config.artifact_dir,
+                                        MODEL_EVALUATION_ARTIFACT_DIR, )
+
+            model_evaluation_file_path = os.path.join(artifact_dir,
+                                                    model_evaluation_config[MODEL_EVALUATION_FILE_NAME_KEY])
+            response = ModelEvaluationconfig(model_evaluation_file_path=model_evaluation_file_path,
+                                            time_stamp=self.time_stamp)
+            
+            
+            logging.info(f"Model Evaluation Config: {response}.")
+            return response
+        except Exception as e:
+            raise maintananceException(e,sys) from e
+
+    def get_model_pusher_config(self) ->ModelPusherconfig:
+        try:
+            time_stamp = f"{datetime.now().strftime('%Y%m%d%H%M%S')}"
+            model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+            export_dir_path = os.path.join(ROOT_DIR, model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
+                                           time_stamp)
+
+            model_pusher_config = ModelPusherconfig(export_dir_path=export_dir_path)
+            logging.info(f"Model pusher config {model_pusher_config}")
+            return model_pusher_config
+
+        except Exception as e:
+            raise maintananceException(e,sys) from e
 
     def get_training_pipeline_config(self)->TrainingPipelineConfig:
         try:
            training_pipeline_config=self.config_info[TRAINING_PIPELINE_CONFIG_KEY]
-           artifact_dir=os.path.join(ROOT_DIR,training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
+           artifact_dir=os.path.join(ROOT_DIR,
+           training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
            training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY]
            )
            training_pipeline_config=TrainingPipelineConfig(artifact_dir=artifact_dir)

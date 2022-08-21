@@ -24,6 +24,37 @@ columns:
  SensorMeasure19: float64
  SensorMeasure20: float64
  SensorMeasure21: float64
+ Life_Ratio: float64
  labels: int64
 
-traget_column : labels
+numerical_columns:
+  - Cycle
+  - OpSet1
+  - OpSet2
+  - OpSet3
+  - SensorMeasure1
+  - SensorMeasure2
+  - SensorMeasure3
+  - SensorMeasure4
+  - SensorMeasure5
+  - SensorMeasure6
+  - SensorMeasure7
+  - SensorMeasure8
+  - SensorMeasure9
+  - SensorMeasure10
+  - SensorMeasure11
+  - SensorMeasure12
+  - SensorMeasure13
+  - SensorMeasure14
+  - SensorMeasure15
+  - SensorMeasure16
+  - SensorMeasure17
+  - SensorMeasure18
+  - SensorMeasure19
+  - SensorMeasure20
+  - SensorMeasure21
+  - Life_Ratio
+ 
+
+
+target_column : labels
