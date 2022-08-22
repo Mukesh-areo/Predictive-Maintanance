@@ -5,6 +5,16 @@ Prognostics and health management is an important topic in industry for predicti
 ## Prediction Goal
 In this dataset the goal is to predict the remaining useful life (RUL) of each engine in the test dataset. RUL is equivalent of number of flights remained for the engine after the last datapoint in the test dataset.
 
+## Tech TOOL used
+--Python
+--VS code
+--Dockers
+--CI-CD Pipeline
+--MLOops
+--Github
+--evidently
+--Flask API
+
 ## Pipeline Followed For This project
 ![image](https://user-images.githubusercontent.com/85065063/185973862-9690b034-92ce-4cb7-bc79-556bd20657b2.png)
 
@@ -25,6 +35,14 @@ The data are provided as a zip-compressed text file with 26 columns of numbers, 
 
 ## Data Drift Monitoring
 ![image](https://user-images.githubusercontent.com/85065063/185976213-f01c9de8-4535-47e5-a916-c68fbf554ebb.png)
+
+## Final Ui 
+![image](https://user-images.githubusercontent.com/85065063/185976541-c338374b-029a-4707-a088-3fca5d0cbb0a.png)
+
+## Deployment Heroko Link
+Deployment Link-------https://predictive-maintenance-ml.herokuapp.com/
+
+
 
 
 
